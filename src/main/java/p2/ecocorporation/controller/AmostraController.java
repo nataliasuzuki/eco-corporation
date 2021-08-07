@@ -115,7 +115,7 @@ public class AmostraController {
 			}
 			else if(tipoConsulta.equalsIgnoreCase("regiao"))
 			{
-				resultTemp = resultTemp + "\n\nTrimestre: " + "" + "\nCota: " + cota + "\nVendas: " + vendas + "\nFucionario: " + funcionario;
+				resultTemp = resultTemp + "\n\nTrimestre: " + trimestre + "\nCota: " + cota + "\nVendas: " + vendas + "\nFucionario: " + funcionario;
 			}
 			else
 			{
