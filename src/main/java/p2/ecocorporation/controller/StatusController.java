@@ -8,7 +8,7 @@ public class StatusController {
 	
 	@RequestMapping("/status")
 	public String check() {
-		return "online";
+		return "Online";
 	}
 
 }
