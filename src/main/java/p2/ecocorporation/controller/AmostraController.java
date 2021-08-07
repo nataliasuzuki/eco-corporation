@@ -12,37 +12,36 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import p2.ecocorporation.model.Funcionario;
-import p2.ecocorporation.repository.FuncionarioRepository;
-
+import p2.ecocorporation.model.Amostra;
+import p2.ecocorporation.repository.AmostraRepository;
 
 @RestController
-public class FuncionarioController {
+public class AmostraController {
 	
 	@Autowired
-	private FuncionarioRepository repository; 
+	private AmostraRepository repository; 
 	
-	@GetMapping(path = "/funcionario/{codigo}")
+	@GetMapping(path = "/amostra/{codigo}")
 	public Optional<Object> consultar(@PathVariable("codigo") Integer codigo) {
 		return repository.findById(codigo)
 				.map(record -> ResponseEntity.ok().body(record));
 	}
 	
-	@PostMapping(path = "/funcionario/criar")
-	public Funcionario salvar(@RequestBody Funcionario funcionario) {
-		return repository.save(funcionario);
+	@PostMapping(path = "/amostra/criar")
+	public Amostra salvar(@RequestBody Amostra amostra) {
+		return repository.save(amostra);
 	}
 	
-	@DeleteMapping(path = "/funcionario/remover/{codigo}")
+	@DeleteMapping(path = "/amostra/remover/{codigo}")
 	public void remover(@PathVariable("codigo") Integer codigo) {
 		repository.deleteById(codigo);
 	}
 	
-	@PutMapping("/funcionario/atualizar/{codigo}")
-	public ResponseEntity<?> atualizar(@RequestBody Funcionario funcionario,
+	@PutMapping("/amostra/atualizar/{codigo}")
+	public ResponseEntity<?> atualizar(@RequestBody Amostra amostra,
 	  @PathVariable("codigo") Integer codigo) {
-		repository.save(funcionario);
-	    return ResponseEntity.ok("Funcionario atualizado com sucesso!");
+		repository.save(amostra);
+	    return ResponseEntity.ok("Amostragem atualizado com sucesso!");
 	}
 
 }
