@@ -23,4 +23,14 @@ Este projeto possui:
 - Spring Boot
 - JPA
 
+### :vertical_traffic_light: ENDPOINTS
 
+Tabela do banco de dados **Amostra**: armazena cada registro da tabela mostrada na primeira imagem acima (que está mostrando 9 registros na imagem)
+- GET: http://localhost:8080/amostra/{codigo} *Retorna o registro da tabela Amostra que possui o codigo informado no request*
+- POST: http://localhost:8080/amostra/criar *Cria um novo registro na tabela Amostra*
+- PUT: http://localhost:8080/amostra/atualizar/{codigo} *Atualiza as informações do registro na tabela Amostra que possui o codigo informado no request*
+- DELETE: http://localhost:8080/amostra/remover/{codigo} *Remove o registro da tabela Amostra que possui o codigo informado no request*
+- GET: http://localhost:8080/amostra/desempenho?funcionario=Sandra *Retorna o desempenho pessoal da funcionaria Sandra*
+- GET: http://localhost:8080/amostra/desempenho?regiao=Oeste *Retorna o desempenho total da região Oeste*
+- GET: http://localhost:8080/amostra/desempenho?trimestre=2020-3 *Retorna o desempenho total do trimestre 2020-3*
+- GET: http://localhost:8080/amostra/geraRelatorio *Gera um relatório excel com todas as informações da tabela Amostra, que é a mesma da primeira imagem deste readme*
