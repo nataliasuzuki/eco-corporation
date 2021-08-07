@@ -62,7 +62,7 @@ public class AmostraController {
 	}
 	
 	@GetMapping(path = "/amostra/desempenho")
-	public String consultarDesempenhoF(@RequestParam Map<String,String> params) {
+	public String consultarDesempenho(@RequestParam Map<String,String> params) {
 		
 		String tipoConsulta = "";
 		String busca = "";
