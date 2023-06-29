@@ -41,7 +41,7 @@ public class AmostraController {
 	@GetMapping(path = "/amostra/{codigo}")
 	public Optional<Object> consultar(@PathVariable("codigo") Integer codigo) {
 		return repository.findById(codigo)
-				.map(record -> ResponseEntity.ok().body(record));
+				.map(amostra -> ResponseEntity.ok().body(amostra));
 	}
 	
 	@PostMapping(path = "/amostra/criar")
@@ -62,20 +62,19 @@ public class AmostraController {
 	}
 	
 	@GetMapping(path = "/amostra/desempenho")
-	public String consultarDesempenho(@RequestParam Map<String,String> params) {
-		
+	public String consultarDesempenho(@RequestParam() Map<String,String> params) {
+
 		String tipoConsulta = "";
 		String busca = "";
-		
-		for (Entry<String, String> entry : params.entrySet()) 
+
+		for (Entry<String, String> entry : params.entrySet())
 		{
-		    System.out.println(entry.getKey() + "/" + entry.getValue());
 		    tipoConsulta = entry.getKey();
 		    busca = entry.getValue();
 		}
-		
-		Double cota = 0.0;
-		Double vendas = 0.0;
+
+		Double cota;
+		Double vendas;
 		Double desempenho = 0.0;
 		String trimestre = "";
 		String regiao = "";
@@ -228,58 +227,56 @@ public class AmostraController {
 		//Funcionario
 		HSSFCell cell0 = row.createCell(0);
 		if (funcionario != null){
-				cell0.setCellValue(funcionario.toString());
+			cell0.setCellValue(funcionario.toString());
 		} else {
-				cell0.setCellValue("");
+			cell0.setCellValue("");
 		}
 
 		//Regiao
 		HSSFCell cell1 = row.createCell(1);
 		if (regiao != null){
-				cell1.setCellValue(regiao.toString());
+			cell1.setCellValue(regiao.toString());
 		} else {
-				cell1.setCellValue("");
+			cell1.setCellValue("");
 		}	
 
 		//Trimestre
 		HSSFCell cell2 = row.createCell(2);
 		if (trimestre != null){
-				cell2.setCellValue(trimestre.toString());
+			cell2.setCellValue(trimestre.toString());
 		} else {
-				cell2.setCellValue("");
+			cell2.setCellValue("");
 		}
 		
 		//Cota
 		HSSFCell cell3 = row.createCell(3);
 		if (cota != null){
-//				String cotaForm = new DecimalFormat("#,##").format(cota);
-				cell3.setCellValue("R$" + cota);
+			cell3.setCellValue("R$" + cota);
 		} else {
-				cell3.setCellValue("");
+			cell3.setCellValue("");
 		}
 		
 		//Vendas
 		HSSFCell cell4 = row.createCell(4);
 		if (vendas != null){
-//				String vendasForm = new DecimalFormat("#,##").format(vendas);
-				cell4.setCellValue("R$" + vendas);
+			cell4.setCellValue("R$" + vendas);
 		} else {
-				cell4.setCellValue("");
+			cell4.setCellValue("");
 		}
 
 		if (i % 2 == 0) {
-				cell0.setCellStyle(sLinha1);
-				cell1.setCellStyle(sLinha1);
-				cell2.setCellStyle(sLinha1);
-				cell3.setCellStyle(sLinha1);
-				cell4.setCellStyle(sLinha1);
+			cell0.setCellStyle(sLinha1);
+			cell1.setCellStyle(sLinha1);
+			cell2.setCellStyle(sLinha1);
+			cell3.setCellStyle(sLinha1);
+			cell4.setCellStyle(sLinha1);
 		}
 		else {
-				cell0.setCellStyle(sLinha2);
-				cell1.setCellStyle(sLinha2);
-				cell2.setCellStyle(sLinha2);
-				cell3.setCellStyle(sLinha2);
-				cell4.setCellStyle(sLinha2);
+			cell0.setCellStyle(sLinha2);
+			cell1.setCellStyle(sLinha2);
+			cell2.setCellStyle(sLinha2);
+			cell3.setCellStyle(sLinha2);
+			cell4.setCellStyle(sLinha2);
 		}
 	}
 
