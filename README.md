@@ -30,6 +30,7 @@ Tabela abaixo mostra uma amostragem dos dados:
 - GET: http://localhost:8080/amostra/desempenho?regiao=Oeste *Retorna o desempenho total da região Oeste*
 - GET: http://localhost:8080/amostra/desempenho?trimestre=2020-3 *Retorna o desempenho total do trimestre 2020-3*
 - GET: http://localhost:8080/amostra/geraRelatorio *Gera um relatório excel com todas as informações da tabela Amostra, que é a mesma da primeira imagem deste readme*
+- No arquivo ```Eco Corporation.postman_collection.json``` que está na raiz do projeto, contém o arquivo que pode ser importado dentro do Postman.
 
 ### Executar Eco Corporation usando arquivo jar
 - Criar o banco de dados localmente de nome ```eco-corporation```,
